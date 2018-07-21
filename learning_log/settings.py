@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     #my app
     'learning_logs',
     'users',
+    #第三方应用
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #我的设置
 LOGIN_URL = '/users/login/'
+#第三方设置
+BOOTSTRAP3 = {
+    'include_jquery:True,'
+    }
 
