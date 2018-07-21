@@ -127,6 +127,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/users/login/'
 #第三方设置
 BOOTSTRAP3 = {
-    'include_jquery:True,'
+    'include_jquery:':True,
     }
 
