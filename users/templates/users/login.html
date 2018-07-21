@@ -13,8 +13,8 @@
   {% endif %}
   
   <form method='post' action="{% url 'users:login' %}" class="form">
-  {%csrf_token%}
-  {% bootstrap_form form %}}
+  {% csrf_token %}
+  {% bootstrap_form form %}
   {% buttons %}
     <button name='sumbit' class="btn btn-primary">log in</button>
   {% endbuttons %}

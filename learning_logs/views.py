@@ -9,19 +9,19 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     #主页
     return render(request,'learning_logs/index.html')
-@login_required
 def topics(request):
     #主题
-    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+    topics = Topic.objects.order_by('date_added')
     context = {'topics':topics}
     return render(request,'learning_logs/topics.html',context)
-@login_required
+
 def topic(request,topic_id):
     topic = Topic.objects.get(id=topic_id)
-    if topic.owner != request.user:
-        raise Http404
     entries = topic.entry_set.order_by('-date_added')
-    context = {'topic':topic,'entries':entries}
+    power = False
+    if topic.owner == request.user:
+        power = True
+    context = {'topic':topic,'entries':entries,'power':power}
     return render(request,'learning_logs/topic.html',context)
 @login_required
 def new_topic(request):
